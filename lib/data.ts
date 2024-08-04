@@ -35,28 +35,36 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Data Science Intern",
+    location: "First American | Santa Ana, CA",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "Reformed data integration process using R and SQL Server and developed Python scripts to innovate ETL process",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "June 2024 - September 2024",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Student Data Science Intern",
+    location: "Poppin | Los Angeles, CA",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "Engineered 1st data pipeline for social media startup with Snowflake, dbt, and Airflow. Visualized user/financial metrics in Power BI dashboard used directly in pitch securing Crunchbase funding.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "January 2024 - April 2024",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Undergraduate Teaching Assistant",
+    location: "UCLA Mathematics | Los Angeles, CA",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      "Mentored peers in Introduction to Computer Science taught in C++, Introduction to Statistics taught in R, and Calculus I",
     icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "September 2023 - December 2023",
+  },
+  {
+    title: "Associate Substitute",
+    location: "Benicia Unified School District | Benicia, CA",
+    description:
+      "Developed curriculum for K-5th grade students in summer program covering elementery algebra and mathematical intuition",
+    icon: React.createElement(FaReact),
+    date: "September 2023 - December 2023",
   },
 ] as const;
 
@@ -85,23 +93,28 @@ export const projectsData = [
 ] as const;
 
 export const skillsData = [
+  "Python",
+  "SQL",
+  "R",
+  "C++",
+  "C",
+  "TypeScript",
+  "Java",
   "HTML",
   "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
+  "MATLAB",
+  "Snowflake",
+  "SQL Server",
   "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "Kafka",
+  "Spark",
+  "Pandas",
+  "React",
+  "Git",
+  "Linux",
+  "AWS",
+  "Kubernetes",
+  "Tableau",
+  "Vercel"
+
 ] as const;
