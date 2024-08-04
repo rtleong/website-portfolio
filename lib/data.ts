@@ -59,12 +59,12 @@ export const experiencesData = [
     date: "September 2023 - December 2023",
   },
   {
-    title: "Associate Substitute",
+    title: "Associate Substitute Instructor",
     location: "Benicia Unified School District | Benicia, CA",
     description:
       "Developed curriculum for K-5th grade students in summer program covering elementery algebra and mathematical intuition",
     icon: React.createElement(FaReact),
-    date: "September 2023 - December 2023",
+    date: "June 2023 - September 2023",
   },
 ] as const;
 
