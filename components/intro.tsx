@@ -25,10 +25,13 @@ export default function Intro() {
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-      >
-        <div  className="font-bold">Riley Leong {" "} </div>
-        <div className="font-bold">Engineer {" "} </div>
-      </motion.h1>
+
+        >
+  <div className="border-4 border-white p-4 w-[300px] h-[100px] mx-auto text-center flex flex-col items-center justify-center rounded-lg">
+    <div className="font-bold text-xl mb-1">Riley Leong</div>
+    <div className="font-bold text-xl">Engineer</div>
+  </div>
+</motion.h1>
 
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
