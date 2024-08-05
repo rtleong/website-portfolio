@@ -2,9 +2,9 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import healthyImg from "@/public/HealthyCommunities.png";
+import gxImg from "@/public/gx-preview.png";
+import myerImg from "@/public/myersbriggs.png";
 
 export const links = [
   {
@@ -70,25 +70,25 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Healthy Communities",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "Conducted principal component analysis in Python to reduce a county health dataset and perform feature extraction to support evidence for established causes of physical inactivity",
+    tags: ["Python", "Tableau", "PCA", "Machine Learning"],
+    imageUrl: healthyImg,
   },
   {
-    title: "rmtDev",
+    title: "Data-Valex",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
+      "Developed web application in React Native and TypeScript supported by Python library GX to perform simple binary and boolean operations on uploaded datasets",
+    tags: ["React Native", "TypeScript", "Python", "Great Expectations"],
+    imageUrl: gxImg,
   },
   {
-    title: "Word Analytics",
+    title: "NLP Application",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "Created a framework in Flask performing exploratory data analysis and transformation on media data in Python and performed regression and classification tasks in PyTorch to predict personality types from social media post captions",
+    tags: ["MongoDB", "Flask", "OpenAI API", "PyTorch"],
+    imageUrl: myerImg,
   },
 ] as const;
 
