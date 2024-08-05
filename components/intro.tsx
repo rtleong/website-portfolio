@@ -27,10 +27,15 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
 
         >
-  <div className="border-4 border-white p-4 w-[300px] h-[100px] mx-auto text-center flex flex-col items-center justify-center rounded-lg">
-    <div className="font-bold text-xl mb-1">Riley Leong</div>
-    <div className="font-bold text-xl">Engineer</div>
+  <div className="border-4 border-white py-4 px-72 mx-auto text-center flex flex-col items-center justify-center rounded-lg">
+  <div className="flex flex-col items-center">
+    <div className="font-bold text-8xl font-sans whitespace-nowrap">Riley Leong</div> {/* Simple Font */}
+    <div className="my-8 w-96 border-t-4 border-white rounded-lg"></div> {/* Separator Bar */}
+    <div className="font-bold text-4xl font-serif whitespace-nowrap">Engineer</div> {/* More Stylish Font */}
   </div>
+</div>
+
+
 </motion.h1>
 
       <motion.div
