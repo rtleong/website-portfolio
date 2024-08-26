@@ -36,7 +36,7 @@ export default function About() {
       into corporate/consumer products.
     </div>
     <div>
-      I am currently seeking Data Science/Engineering and Software Engineering roles. By developing my 
+      I am currently seeking Software Engineering and Data Science/Engineering roles. By developing my 
       skills in both the software and data fields, I hope to create a foundation for a successful career 
       in the tech industry. <span className="font-medium"></span>
     </div>

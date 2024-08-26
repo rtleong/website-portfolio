@@ -40,9 +40,9 @@
         "async": false
       }
     },
-    "(app-client)/./components/about.tsx": {
+    "(app-client)/./components/experience.tsx": {
       "*": {
-        "id": "(sc_client)/./components/about.tsx",
+        "id": "(sc_client)/./components/experience.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -56,9 +56,9 @@
         "async": false
       }
     },
-    "(app-client)/./components/experience.tsx": {
+    "(app-client)/./components/intro.tsx": {
       "*": {
-        "id": "(sc_client)/./components/experience.tsx",
+        "id": "(sc_client)/./components/intro.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -88,9 +88,9 @@
         "async": false
       }
     },
-    "(app-client)/./components/intro.tsx": {
+    "(app-client)/./components/about.tsx": {
       "*": {
-        "id": "(sc_client)/./components/intro.tsx",
+        "id": "(sc_client)/./components/about.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -120,17 +120,17 @@
         "async": false
       }
     },
-    "(app-client)/./context/active-section-context.tsx": {
+    "(app-client)/./context/theme-context.tsx": {
       "*": {
-        "id": "(sc_client)/./context/active-section-context.tsx",
+        "id": "(sc_client)/./context/theme-context.tsx",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./context/theme-context.tsx": {
+    "(app-client)/./context/active-section-context.tsx": {
       "*": {
-        "id": "(sc_client)/./context/theme-context.tsx",
+        "id": "(sc_client)/./context/active-section-context.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -219,8 +219,8 @@
       ],
       "async": false
     },
-    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\about.tsx": {
-      "id": "(app-client)/./components/about.tsx",
+    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\experience.tsx": {
+      "id": "(app-client)/./components/experience.tsx",
       "name": "*",
       "chunks": [
         "app/page:static/chunks/app/page.js"
@@ -235,8 +235,8 @@
       ],
       "async": false
     },
-    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\experience.tsx": {
-      "id": "(app-client)/./components/experience.tsx",
+    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\intro.tsx": {
+      "id": "(app-client)/./components/intro.tsx",
       "name": "*",
       "chunks": [
         "app/page:static/chunks/app/page.js"
@@ -267,8 +267,8 @@
       ],
       "async": false
     },
-    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\intro.tsx": {
-      "id": "(app-client)/./components/intro.tsx",
+    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\components\\about.tsx": {
+      "id": "(app-client)/./components/about.tsx",
       "name": "*",
       "chunks": [
         "app/page:static/chunks/app/page.js"
@@ -307,16 +307,16 @@
       ],
       "async": false
     },
-    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\context\\active-section-context.tsx": {
-      "id": "(app-client)/./context/active-section-context.tsx",
+    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\context\\theme-context.tsx": {
+      "id": "(app-client)/./context/theme-context.tsx",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\context\\theme-context.tsx": {
-      "id": "(app-client)/./context/theme-context.tsx",
+    "C:\\Users\\rileo\\OneDrive\\Desktop\\website-portfolio\\context\\active-section-context.tsx": {
+      "id": "(app-client)/./context/active-section-context.tsx",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"

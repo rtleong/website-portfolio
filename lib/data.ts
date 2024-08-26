@@ -1,10 +1,12 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+import { BsClipboard2Data } from "react-icons/bs";
+import { PiChalkboardTeacher } from "react-icons/pi";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 import healthyImg from "@/public/HealthyCommunities.png";
 import gxImg from "@/public/gx-preview.png";
 import myerImg from "@/public/myersbriggs.png";
+import easyA from "@/public/easy_apostrophe_demo.gif";
+
 
 export const links = [
   {
@@ -38,8 +40,8 @@ export const experiencesData = [
     title: "Data Science Intern",
     location: "First American | Santa Ana, CA",
     description:
-      "Reformed data integration process using R and SQL Server and developed Python scripts to innovate ETL process",
-    icon: React.createElement(LuGraduationCap),
+      "Developed Python scripts to innovate ETL process and reformed data integration process using R and SQL Server",
+    icon: React.createElement(BsClipboard2Data),
     date: "June 2024 - September 2024",
   },
   {
@@ -47,7 +49,7 @@ export const experiencesData = [
     location: "Poppin | Los Angeles, CA",
     description:
       "Engineered 1st data pipeline for social media startup with Snowflake, dbt, and Airflow. Visualized user/financial metrics in Power BI dashboard used directly in pitch securing Crunchbase funding.",
-    icon: React.createElement(CgWorkAlt),
+    icon: React.createElement(MdOutlineSpaceDashboard),
     date: "January 2024 - April 2024",
   },
   {
@@ -55,7 +57,7 @@ export const experiencesData = [
     location: "UCLA Mathematics | Los Angeles, CA",
     description:
       "Mentored peers in Introduction to Computer Science taught in C++, Introduction to Statistics taught in R, and Calculus I",
-    icon: React.createElement(FaReact),
+    icon: React.createElement(PiChalkboardTeacher),
     date: "September 2023 - December 2023",
   },
   {
@@ -63,12 +65,19 @@ export const experiencesData = [
     location: "Benicia Unified School District | Benicia, CA",
     description:
       "Developed curriculum for K-5th grade students in summer program covering elementery algebra and mathematical intuition",
-    icon: React.createElement(FaReact),
+    icon: React.createElement(PiChalkboardTeacher),
     date: "June 2023 - September 2023",
   },
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Easy-Apostrophe",
+    description:
+      "Created a VS Code extension that makes creating lists of strings, comma-delimited items, and many more structures easier using TypeScript and VS Code deployment terminal",
+    tags: ["TypeScript", "VS Code", "Github"],
+    imageUrl: easyA,
+  },
   {
     title: "Healthy Communities",
     description:
