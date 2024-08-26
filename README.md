@@ -1,6 +1,3 @@
-# website-portfolio
-A website portfolio developed in TypeScript to showcase projects and experience for myself
-
 # Riley Leong's Portfolio
 
 Welcome to my personal website! This repository contains the code for my portfolio site hosted at [rileyleong.vercel.app](https://rileyleong.vercel.app).
