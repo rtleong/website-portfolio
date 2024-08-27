@@ -20,6 +20,7 @@ This website showcases my work, projects, and experiences. It is built using [Ne
 
 - [Next.js](https://nextjs.org/): React framework for building server-side rendered applications.
 - [React](https://reactjs.org/): JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/): JavaScript with syntax for types
 - [CSS](https://www.w3.org/Style/CSS/): Styling the website to ensure a modern and clean look.
 - [Vercel](https://vercel.com/): Platform for deploying and hosting the website.
 
@@ -30,13 +31,13 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/rtleong/website-portfolio
     ```
 
 2. **Navigate to the project directory**:
 
     ```bash
-    cd your-repository
+    cd website-portfolio
     ```
 
 3. **Install dependencies**:
