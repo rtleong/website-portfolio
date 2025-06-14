@@ -37,6 +37,22 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Data Engineer Intern",
+    location: "Fidelity Investments | Durham, NC",
+    description:
+      "Engineered a generative AI tool allowing internal teams to quickly search for common production issues based on past MS Teams Messages",
+    icon: React.createElement(BsClipboard2Data),
+    date: "May 2025 - August 2025",
+  },
+  {
+    title: "Project Management Intern",
+    location: "OPN Healthcare | Los Angeles, CA",
+    description:
+      "Led a team of 13 data science interns with AGILE methodology to produce a cost modeling tool for oncology regimens and automate KPI dashboards ",
+    icon: React.createElement(BsClipboard2Data),
+    date: "September 2024 - Jan 2025",
+  },
+  {
     title: "Data Science Intern",
     location: "First American | Santa Ana, CA",
     description:

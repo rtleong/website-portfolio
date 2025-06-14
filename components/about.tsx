@@ -22,23 +22,23 @@ export default function About() {
   <SectionHeading>About Me</SectionHeading>
   <div className="mb-3 space-y-4">
     <div>
-      Hi! My name is <span className="font-bold text-orange-500">Riley</span>!
+      Hi! I'm <span className="font-bold text-orange-500">Riley</span>!
     </div>
     <div>
-      <span className="font-medium">I am</span> currently in my junior year at{" "}
-      <span className="font-medium">UCLA where I study Mathematics of Computation, </span> 
-      a <span className="font-bold text-orange-400">Math + CS</span> joint major focused on applied fields.
+      <span className="font-medium"></span>I'm a Senior at {" "}
+      <span className="font-medium">UCLA majoring in  Mathematics of Computation</span> 
+      , a <span className="font-bold text-orange-400">joint Math + CS</span> major focused on applied technical fields.
     </div>
     <div>
-      This past summer, I had the privilege to work as a 
-      <span className="font-bold text-orange-400"> Data Science Intern @ First American</span>, where 
-      I worked on a variety of tasks relating to pipelines, quality assurance, and integrating our data 
-      into corporate/consumer products.
+      This past summer, I interned as a
+      <span className="font-bold text-orange-400"> Data Engineer @ Fidelity Investments</span>, where I engineered a 
+      generative AI tool to semantically search over 7 years of internal MS Teams Messages (1M+ records). 
+      The tool enables vector-based search and LLM-powered Q&A to resolve common production issues more efficiently. 
+      I'm passionate about full-stack development, big data systems, and designing products that make an impact!
     </div>
     <div>
-      I am currently seeking Software Engineering and Data Science/Engineering roles. By developing my 
-      skills in both the software and data fields, I hope to create a foundation for a successful career 
-      in the tech industry. <span className="font-medium"></span>
+      Always happy to chat so feel free to reach out!
+       <span className="font-medium"></span>
     </div>
   </div>
 </div>
