@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
@@ -18,68 +18,128 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[60rem] text-center sm:mb-0 scroll-mt-[100rem] relative flex flex-col items-center justify-center"
     >
+      {/* Soft orange spotlight backdrop */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none">
+        <div
+          style={{
+            width: '520px',
+            height: '320px',
+            background: 'radial-gradient(ellipse 60% 40% at 50% 50%, #FF8000 0%, transparent 100%)',
+            filter: 'blur(60px)',
+            opacity: 0.18,
+          }}
+        />
+      </div>
 
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
+      {/* Profile image */}
+      <motion.div
+        className="relative z-10 flex flex-col items-center"
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, type: "spring", stiffness: 100, damping: 20 }}
+      >
+        <div className="-mb-12 flex justify-center z-20">
+          <span className="inline-block rounded-full p-1 bg-gradient-to-tr from-[#FF8000] to-[#FF8000]/60 shadow-lg" style={{ boxShadow: '0 4px 32px 0 #FF800033' }}>
+            <Image
+              src="/profile.jpg"
+              alt="Profile photo of Riley Leong"
+              width={160}
+              height={160}
+              className="rounded-full object-cover object-[50%_30%] border-4 border-[#181716] bg-[#181716]"
+              priority
+            />
+          </span>
+        </div>
 
+        <motion.h1
+          className="pt-16 mb-4 text-6xl sm:text-8xl font-serif font-normal text-shadow-strong relative z-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
         >
-  <div className="border-4 border-white py-4 px-72 mx-auto text-center flex flex-col items-center justify-center rounded-lg">
-  <div className="flex flex-col items-center">
-    <div className="font-bold text-8xl font-sans whitespace-nowrap">Riley Leong</div> {/* Simple Font */}
-    <div className="my-8 w-96 border-t-4 border-white rounded-lg"></div> {/* Separator Bar */}
-    <div className="font-bold text-4xl font-serif whitespace-nowrap">Engineer</div> {/* More Stylish Font */}
-  </div>
-</div>
+          Riley
+          <br />
+          <span className="text-gray-300">Leong</span>
+        </motion.h1>
 
-
-</motion.h1>
+        <motion.h2
+          className="text-3xl sm:text-4xl font-light text-gray-300 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          Data Engineer and Project Manager
+        </motion.h2>
+        <motion.p
+          className="text-lg text-gray-400 max-w-2xl mx-auto mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        >
+          Mathematics of Computation Major at UCLA. Passionate about using data to solve business needs, leading teams, and generating impact.
+        </motion.p>
+        {/* Orange accent underline - moved lower */}
+        <div className="w-32 h-2 rounded-full bg-accent mb-8" style={{ boxShadow: '0 4px 32px 0 #FF800033' }} />
+      </motion.div>
 
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 mt-8 relative z-10"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.1,
+          delay: 1.1,
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
         }}
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+          className="btn-primary group flex items-center gap-2"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact {" "}
+          Let's Connect
+          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition-transform" />
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+          className="btn-secondary group flex items-center gap-2"
           href="/Riley_Leong's_Resume.pdf"
           download
         >
-          Resume{" "}
+          <HiDownload className="opacity-70 group-hover:translate-y-1 transition-transform" />
+          Resume
         </a>
 
-        <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/riley-leong/"
-          target="_blank"
+        <motion.div
+          className="flex gap-4"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.3 }}
         >
-          <BsLinkedin />
-        </a>
+          <a
+            className="text-gray-300 hover:text-accent transition-all duration-300 rounded-full group hover:scale-105"
+            href="https://www.linkedin.com/in/riley-leong/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BsLinkedin className="text-2xl group-hover:scale-110 transition-transform" />
+          </a>
 
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/rtleong"
-          target="_blank"
-        >
-          <FaGithubSquare />
-        </a>
+          <a
+            className="text-gray-300 hover:text-accent transition-all duration-300 rounded-full group hover:scale-105"
+            href="https://github.com/rtleong"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithubSquare className="text-2xl group-hover:scale-110 transition-transform" />
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );

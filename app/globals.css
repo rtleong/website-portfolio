@@ -2,14 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #11100e;
+  --color-bg-secondary: #181716;
+  --color-text: #fff;
+  --color-text-secondary: #d1d5db;
+  --color-accent: #FF8000;
+  --color-accent-hover: #e06d00;
+  --color-border: #23211e;
+}
+
 html {
-  --line-color: #e5e7eb;
+  scroll-behavior: smooth;
 }
 
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
 }
 
-.borderBlack {
-  @apply border border-black/10;
+h1, h2, h3, .font-serif {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent {
+  background: var(--color-accent);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px 0 rgba(255,128,0,0.08);
+}
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 24px 0 rgba(255,128,0,0.12);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  border-radius: 9999px;
+  padding: 12px 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent-hover);
+}
+
+.section-bg {
+  background: var(--color-bg-secondary);
+  border-radius: 2rem;
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.10);
+}
+
+input, textarea {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+input:focus, textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #23211e;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-shadow-strong {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Remove all previous glass, gradient, and glow classes for a flat look */

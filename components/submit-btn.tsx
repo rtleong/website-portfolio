@@ -1,24 +1,27 @@
 import React from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
+import { motion } from "framer-motion";
 
 export default function SubmitBtn() {
   const { pending } = useFormStatus();
 
   return (
-    <button
+    <motion.button
       type="submit"
-      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65"
+      className="group flex items-center justify-center gap-3 h-14 px-8 bg-gray-700 text-white rounded-full outline-none transition-all duration-300 shadow-lg shadow-gray-900/25 hover:shadow-xl hover:shadow-gray-900/40 disabled:scale-100 disabled:opacity-65 font-semibold text-lg hover:bg-gray-600"
       disabled={pending}
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
     >
       {pending ? (
-        <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-400/30 border-t-white"></div>
       ) : (
         <>
-          Submit{" "}
-          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
+          Send Message
+          <FaPaperPlane className="text-lg opacity-80 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
         </>
       )}
-    </button>
+    </motion.button>
   );
 }

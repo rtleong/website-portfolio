@@ -10,9 +10,8 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  
-  title: "Riley's Personal Portfolio",
-  description: "Riley is a junior at UCLA studing Math + CS.",
+  title: "Riley Leong - Software Engineer & Data Scientist",
+  description: "Riley is a senior at UCLA studying Mathematics of Computation, passionate about full-stack development, big data systems, and designing impactful products.",
 };
 
 export default function RootLayout({
@@ -23,10 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${inter.className} text-white relative pt-28 sm:pt-36`}
       >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
+        {/* Subtle background elements */}
+        <div className="fixed inset-0 -z-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gray-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        </div>
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
@@ -34,7 +37,17 @@ export default function RootLayout({
             {children}
             <Footer />
 
-            <Toaster position="top-right" />
+            <Toaster 
+              position="top-right" 
+              toastOptions={{
+                style: {
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: 'white',
+                },
+              }}
+            />
             <ThemeSwitch />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>

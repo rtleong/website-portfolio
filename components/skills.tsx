@@ -9,13 +9,18 @@ import { motion } from "framer-motion";
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    y: 40,
+    scale: 0.95,
   },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      delay: 0.05 * index,
+      delay: 0.03 * index,
+      type: "spring",
+      stiffness: 120,
+      damping: 18,
     },
   }),
 };
@@ -27,26 +32,38 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-[60rem] scroll-mt-28 text-center sm:mb-40"
     >
-      <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
+      <SectionHeading>My Skills</SectionHeading>
+      <motion.div
+        className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         {skillsData.map((skill, index) => (
-          <motion.li
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
+          <motion.div
             key={index}
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{
-              once: true,
-            }}
+            viewport={{ once: true }}
             custom={index}
+            whileHover={{
+              y: -4,
+              scale: 1.05,
+              boxShadow: "0 4px 24px 0 #FF800022"
+            }}
+            className="flex items-center bg-[#181716] rounded-full px-5 py-2 shadow-sm transition-all duration-200 cursor-default group"
+            style={{ minWidth: '110px' }}
           >
-            {skill}
-          </motion.li>
+            <span className="w-2 h-2 rounded-full bg-accent mr-2 block" />
+            <span className="text-base text-white font-medium select-none">
+              {skill}
+            </span>
+          </motion.div>
         ))}
-      </ul>
+      </motion.div>
     </section>
   );
 }

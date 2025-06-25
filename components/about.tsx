@@ -11,39 +11,43 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-[60rem] text-center leading-8 sm:mb-40 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
       id="about"
     >
-      
-  <div className="text-left">
-  <SectionHeading>About Me</SectionHeading>
-  <div className="mb-3 space-y-4">
-    <div>
-      Hi! I'm <span className="font-bold text-orange-500">Riley</span>!
-    </div>
-    <div>
-      <span className="font-medium"></span>I'm a Senior at {" "}
-      <span className="font-medium">UCLA majoring in  Mathematics of Computation</span> 
-      , a <span className="font-bold text-orange-400">joint Math + CS</span> major focused on applied technical fields.
-    </div>
-    <div>
-      This past summer, I interned as a
-      <span className="font-bold text-orange-400"> Data Engineer @ Fidelity Investments</span>, where I engineered a 
-      generative AI tool to semantically search over 7 years of internal MS Teams Messages (1M+ records). 
-      The tool enables vector-based search and LLM-powered Q&A to resolve common production issues more efficiently. 
-      I'm passionate about full-stack development, big data systems, and designing products that make an impact!
-    </div>
-    <div>
-      Always happy to chat so feel free to reach out!
-       <span className="font-medium"></span>
-    </div>
-  </div>
-</div>
-
-
+      <SectionHeading>About Me</SectionHeading>
+      <div className="relative flex justify-center">
+        {/* Blurred orange blob for flair */}
+        <div className="absolute -top-8 -left-16 w-40 h-32 bg-accent opacity-20 rounded-full blur-2xl z-0" />
+        <motion.div
+          className="relative flex text-left shadow-lg rounded-2xl px-8 py-10 md:px-14 md:py-12 max-w-2xl items-start z-10 bg-[#23211e]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+        >
+          {/* Vertical orange accent bar */}
+          <div className="w-1.5 h-full bg-accent rounded-full mr-8 hidden sm:block" />
+          <div className="space-y-6 text-lg leading-relaxed">
+            <div>
+              <span className="font-serif text-2xl text-accent font-normal">Hi! I'm Riley 👋</span>
+            </div>
+            <div>
+              I'm a UCLA senior majoring in <span className="text-accent font-semibold">Mathematics of Computation</span> - a joint Math + CS program that fuels my passion for building impactful technology.
+            </div>
+            <div>
+              I thrive at the intersection of <span className="text-accent font-semibold">engineering</span> and <span className="text-accent font-semibold">business</span>, with hands-on experience as a data engineer and project manager.
+            </div>
+            <div>
+              I love uncovering the "why" behind the data and turning insights into real solutions. My mission: create products that matter.
+            </div>
+            <div className="text-xl font-medium">
+              Always happy to connect—let's build something great!
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </motion.section>
   );
 }
