@@ -46,7 +46,7 @@ export const experiencesData = [
     date: "May 2025 - August 2025",
   },
   {
-    title: "Project Management Intern",
+    title: "Product Management Intern",
     location: "OPN Healthcare | Los Angeles, CA",
     description:
       "Led a team of 13 data science interns with AGILE methodology to produce a cost modeling tool for oncology regimens and automate KPI dashboards ",
