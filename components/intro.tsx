@@ -70,7 +70,7 @@ export default function Intro() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
         >
-          Data Engineer and Project Manager
+          Software Engineer 
         </motion.h2>
         <motion.p
           className="text-lg text-gray-400 max-w-2xl mx-auto mb-8"
@@ -78,7 +78,7 @@ export default function Intro() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          Mathematics of Computation Major at UCLA. Passionate about using data to solve business needs, leading teams, and generating impact.
+          Math + CS Major at UCLA. Passionate about using data to solve business needs, leading teams, and generating impact.
         </motion.p>
         {/* Orange accent underline - moved lower */}
         <div className="w-32 h-2 rounded-full bg-accent mb-8" style={{ boxShadow: '0 4px 32px 0 #FF800033' }} />

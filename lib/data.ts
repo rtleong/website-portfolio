@@ -6,6 +6,7 @@ import healthyImg from "@/public/HealthyCommunities.png";
 import gxImg from "@/public/gx-preview.png";
 import myerImg from "@/public/myersbriggs.png";
 import easyA from "@/public/easy_apostrophe_demo.gif";
+import cmIMG from "@/public/conceptmapper.png";
 
 
 export const links = [
@@ -87,6 +88,14 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Concept Mapper",
+    description:
+      "Created an AI-powered tool that transforms complex ideas into clear, connected maps for faster learning and new-hire onboarding",
+    tags: ["TypeScript", "React", "Vite", "SupaBase"],
+    imageUrl: cmIMG,
+    link: "https://conceptmapper.vercel.app/",
+  },
   {
     title: "Easy-Apostrophe",
     description:

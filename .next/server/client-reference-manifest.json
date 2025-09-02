@@ -40,14 +40,6 @@
         "async": false
       }
     },
-    "(app-client)/./components/about.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/about.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./components/contact.tsx": {
       "*": {
         "id": "(sc_client)/./components/contact.tsx",
@@ -64,25 +56,17 @@
         "async": false
       }
     },
+    "(app-client)/./components/about.tsx": {
+      "*": {
+        "id": "(sc_client)/./components/about.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
     "(app-client)/./components/experience.tsx": {
       "*": {
         "id": "(sc_client)/./components/experience.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./components/projects.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/projects.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./components/skills.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/skills.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -96,17 +80,25 @@
         "async": false
       }
     },
-    "(app-client)/./context/active-section-context.tsx": {
+    "(app-client)/./components/skills.tsx": {
       "*": {
-        "id": "(sc_client)/./context/active-section-context.tsx",
+        "id": "(sc_client)/./components/skills.tsx",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./context/theme-context.tsx": {
+    "(app-client)/./components/projects.tsx": {
       "*": {
-        "id": "(sc_client)/./context/theme-context.tsx",
+        "id": "(sc_client)/./components/projects.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/react-hot-toast/dist/index.mjs": {
+      "*": {
+        "id": "(sc_client)/./node_modules/react-hot-toast/dist/index.mjs",
         "name": "*",
         "chunks": [],
         "async": false
@@ -136,9 +128,17 @@
         "async": false
       }
     },
-    "(app-client)/./node_modules/react-hot-toast/dist/index.mjs": {
+    "(app-client)/./context/active-section-context.tsx": {
       "*": {
-        "id": "(sc_client)/./node_modules/react-hot-toast/dist/index.mjs",
+        "id": "(sc_client)/./context/active-section-context.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./context/theme-context.tsx": {
+      "*": {
+        "id": "(sc_client)/./context/theme-context.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -227,14 +227,6 @@
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\about.tsx": {
-      "id": "(app-client)/./components/about.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\contact.tsx": {
       "id": "(app-client)/./components/contact.tsx",
       "name": "*",
@@ -251,24 +243,16 @@
       ],
       "async": false
     },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\about.tsx": {
+      "id": "(app-client)/./components/about.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
     "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\experience.tsx": {
       "id": "(app-client)/./components/experience.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\projects.tsx": {
-      "id": "(app-client)/./components/projects.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\skills.tsx": {
-      "id": "(app-client)/./components/skills.tsx",
       "name": "*",
       "chunks": [
         "app/page:static/chunks/app/page.js"
@@ -283,16 +267,40 @@
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\active-section-context.tsx": {
-      "id": "(app-client)/./context/active-section-context.tsx",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\skills.tsx": {
+      "id": "(app-client)/./components/skills.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\components\\projects.tsx": {
+      "id": "(app-client)/./components/projects.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\react-hot-toast\\dist\\index.mjs": {
+      "id": "(app-client)/./node_modules/react-hot-toast/dist/index.mjs",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\theme-context.tsx": {
-      "id": "(app-client)/./context/theme-context.tsx",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"fallback\":[\"system-ui\",\"-apple-system\",\"BlinkMacSystemFont\",\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",\"Arial\",\"sans-serif\"]}],\"variableName\":\"inter\"}": {
+      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"fallback\":[\"system-ui\",\"-apple-system\",\"BlinkMacSystemFont\",\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",\"Arial\",\"sans-serif\"]}],\"variableName\":\"inter\"}",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerifDisplay\"}": {
+      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerifDisplay\"}",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
@@ -323,16 +331,16 @@
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"fallback\":[\"system-ui\",\"-apple-system\",\"BlinkMacSystemFont\",\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",\"Arial\",\"sans-serif\"]}],\"variableName\":\"inter\"}": {
-      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"fallback\":[\"system-ui\",\"-apple-system\",\"BlinkMacSystemFont\",\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",\"Arial\",\"sans-serif\"]}],\"variableName\":\"inter\"}",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\active-section-context.tsx": {
+      "id": "(app-client)/./context/active-section-context.tsx",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerifDisplay\"}": {
-      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerifDisplay\"}",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\theme-context.tsx": {
+      "id": "(app-client)/./context/theme-context.tsx",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
@@ -341,14 +349,6 @@
     },
     "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\globals.css": {
       "id": "(app-client)/./app/globals.css",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\react-hot-toast\\dist\\index.mjs": {
-      "id": "(app-client)/./node_modules/react-hot-toast/dist/index.mjs",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"

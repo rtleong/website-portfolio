@@ -3,14 +3,18 @@
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData)[number] & {
+  link?: string;
+};
 
 export default function Project({
   title,
   description,
   tags,
   imageUrl,
+  link, // optional
 }: ProjectProps) {
   return (
     <motion.div
@@ -23,14 +27,32 @@ export default function Project({
           src={imageUrl}
           alt={`${title} project`}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           className="transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
+
       <div className="flex flex-col flex-1 p-6 gap-4 justify-between">
-        <h3 className="text-2xl font-serif font-normal text-white mb-1">{title}</h3>
-        <p className="text-gray-400 text-base flex-1 line-clamp-3">{description}</p>
+        {link ? (
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-serif font-normal text-white mb-1 hover:underline"
+          >
+            {title}
+          </Link>
+        ) : (
+          <h3 className="text-2xl font-serif font-normal text-white mb-1">
+            {title}
+          </h3>
+        )}
+
+        <p className="text-gray-400 text-base flex-1 line-clamp-3">
+          {description}
+        </p>
+
         <div className="flex flex-wrap gap-2 mt-2">
           {tags.map((tag, index) => (
             <span

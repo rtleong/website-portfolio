@@ -34,17 +34,17 @@ export default function About() {
               <span className="font-serif text-2xl text-accent font-normal">Hi! I'm Riley 👋</span>
             </div>
             <div>
-              I'm a UCLA senior majoring in <span className="text-accent font-semibold">Mathematics of Computation</span> - a joint Math + CS program that fuels my passion for building impactful technology.
+              UCLA senior studying <span className="text-accent font-semibold">Math + CS</span> - a joint Math + CS program that fuels my passion for building impactful technology.
             </div>
             <div>
-              I thrive at the intersection of <span className="text-accent font-semibold">engineering</span> and <span className="text-accent font-semibold">business</span>, with hands-on experience as a data engineer and project manager.
+              I thrive at the intersection of <span className="text-accent font-semibold">engineering</span> and <span className="text-accent font-semibold">business</span>, with hands-on experience as a data engineer and product manager.
             </div>
             <div>
-              I love uncovering the "why" behind the data and turning insights into real solutions. My mission: create products that matter.
+              My path started with data science, led to product management, data engineering, and now I'm diving into full-stack software engineering.
             </div>
-            <div className="text-xl font-medium">
-              Always happy to connect—let's build something great!
-            </div>
+            <p className="mt-6 text-lg italic font-serif text-neutral-200/90">
+              “Innovation is where engineering meets empathy.”
+            </p>
           </div>
         </motion.div>
       </div>

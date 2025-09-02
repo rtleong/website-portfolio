@@ -20,7 +20,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          &copy; 2024 Riley Leong
+          &copy; Sept. 2025 Riley Leong
         </motion.small>
         
         <motion.p 
