@@ -1,43 +1,33 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { siteContent } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <motion.footer 
-      className="mb-10 px-4 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="glass rounded-2xl p-6 max-w-2xl mx-auto">
-        <motion.small 
-          className="block text-sm text-white/80 mb-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          &copy; Sept. 2025 Riley Leong
-        </motion.small>
-        
-        <motion.p 
-          className="text-sm text-white/60 leading-relaxed"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <span className="gradient-text font-semibold">Built with:</span>{" "}
-          React & Next.js, TypeScript, Tailwind CSS, Framer Motion, React Email & Resend, Vercel hosting.
-        </motion.p>
-        
-        {/* Decorative elements */}
-        <div className="absolute top-2 right-2 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20 blur-lg" />
-        <div className="absolute bottom-2 left-2 w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-20 blur-lg" />
+    <footer className="border-t border-line">
+      <div className="max-w-[100rem] mx-auto px-6 sm:px-10 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-sm text-ink-muted">
+        <div className="flex items-center gap-3">
+          <span className="inline-block w-2 h-2 rounded-full bg-accent" />
+          <span>{siteContent.footer.copyright}</span>
+        </div>
+
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {siteContent.contact.socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="link-line"
+            >
+              {s.label.toLowerCase()}
+            </a>
+          ))}
+        </div>
+
+        <span className="text-xs">{siteContent.footer.builtWith}</span>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

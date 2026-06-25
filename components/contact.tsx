@@ -1,160 +1,119 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
-import toast from "react-hot-toast";
-import { BsEnvelope, BsLinkedin, BsGithub } from "react-icons/bs";
+import { siteContent } from "@/lib/data";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact");
+  const { ref } = useSectionInView("Contact", 0.3);
+
+  const headlineLines = siteContent.contact.headline.split("\n");
 
   return (
-    <motion.section
+    <section
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,60rem)] text-center"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
+      className="relative scroll-mt-24 py-24 sm:py-28 px-6 sm:px-10 max-w-[90rem] mx-auto"
     >
-      <SectionHeading>Get In Touch</SectionHeading>
+      <span className="text-xs uppercase tracking-[0.25em] text-ink-muted block">
+        ({siteContent.contact.eyebrow})
+      </span>
 
-      <motion.div
-        className="glass-strong rounded-3xl p-8 mx-4 relative z-10"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <motion.p 
-          className="text-xl text-gray-300 mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Let's build something amazing together! Feel free to reach out through any of these channels.
-        </motion.p>
+      <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)] leading-[1.05] tracking-tight mt-4 mb-12 max-w-[18ch]">
+        {headlineLines.map((line, i) => (
+          <span key={i} className="block overflow-hidden">
+            <motion.span
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
+              className="inline-block"
+            >
+              {line}
+            </motion.span>
+          </span>
+        ))}
+      </h2>
 
-        {/* Contact methods */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-6 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <motion.a
-            href="mailto:rileyleong24@g.ucla.edu"
-            className="glass px-6 py-4 rounded-2xl flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-300 group hover:scale-105"
-            whileHover={{ y: -2 }}
+      <div className="grid md:grid-cols-12 gap-12 items-start">
+        {/* Left: huge email + socials */}
+        <div className="md:col-span-7 space-y-10">
+          <a
+            href={`mailto:${siteContent.contact.email}`}
+            className="group inline-flex items-center gap-3 font-display text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none link-line break-all"
           >
-            <BsEnvelope className="text-2xl text-gray-400 group-hover:scale-110 transition-transform" />
-            <span className="font-medium">Email</span>
-          </motion.a>
+            {siteContent.contact.email}
+            <HiOutlineArrowUpRight className="text-xl sm:text-2xl shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
 
-          <motion.a
-            href="https://www.linkedin.com/in/riley-leong/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass px-6 py-4 rounded-2xl flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-300 group hover:scale-105"
-            whileHover={{ y: -2 }}
-          >
-            <BsLinkedin className="text-2xl text-gray-400 group-hover:scale-110 transition-transform" />
-            <span className="font-medium">LinkedIn</span>
-          </motion.a>
+          <p className="text-ink-muted max-w-lg text-lg leading-relaxed">
+            {siteContent.contact.blurb}
+          </p>
 
-          <motion.a
-            href="https://github.com/rtleong"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass px-6 py-4 rounded-2xl flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-300 group hover:scale-105"
-            whileHover={{ y: -2 }}
-          >
-            <BsGithub className="text-2xl text-gray-400 group-hover:scale-110 transition-transform" />
-            <span className="font-medium">GitHub</span>
-          </motion.a>
-        </motion.div>
+          <ul className="flex flex-wrap gap-3">
+            {siteContent.contact.socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  {s.label}
+                  <HiOutlineArrowUpRight />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <motion.div
-          className="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        />
-
-        {/* Decorative elements - ensure pointer-events-none and z-0 */}
-        <div className="absolute top-4 right-4 w-16 h-16 bg-gray-600 rounded-full opacity-10 blur-xl pointer-events-none z-0" />
-        <div className="absolute bottom-4 left-4 w-12 h-12 bg-gray-500 rounded-full opacity-10 blur-xl pointer-events-none z-0" />
-        {/* Form content */}
+        {/* Right: quick form */}
         <motion.form
-          className="flex flex-col space-y-6 z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="md:col-span-5 space-y-6"
           action={async (formData) => {
-            const { data, error } = await sendEmail(formData);
-
+            const { error } = await sendEmail(formData);
             if (error) {
               toast.error(error);
               return;
             }
-
-            toast.success("Email sent successfully!");
+            toast.success("Message sent. Talk soon!");
           }}
         >
-          <motion.div
-            className="relative group z-10"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <input
-              className="w-full h-14 px-6 rounded-2xl glass border border-gray-600/30 text-white placeholder-gray-400 focus:border-gray-500/50 focus:outline-none transition-all duration-300 group-focus-within:scale-105 z-10"
-              name="senderEmail"
-              type="email"
-              required
-              maxLength={500}
-              placeholder="Your email address"
-              autoComplete="email"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gray-600/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
-          </motion.div>
+          <p className="text-xs uppercase tracking-[0.25em] text-ink-muted">
+            or send a quick note ↓
+          </p>
 
-          <motion.div
-            className="relative group z-10"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <textarea
-              className="w-full h-52 px-6 py-4 rounded-2xl glass border border-gray-600/30 text-white placeholder-gray-400 focus:border-gray-500/50 focus:outline-none transition-all duration-300 resize-none group-focus-within:scale-105 z-10"
-              name="message"
-              placeholder="Tell me about your project or just say hello!"
-              required
-              maxLength={5000}
-              autoComplete="off"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gray-600/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
-          </motion.div>
+          <input
+            name="senderEmail"
+            type="email"
+            required
+            maxLength={500}
+            placeholder="your email"
+            autoComplete="email"
+            className="w-full"
+          />
 
-          <motion.div
-            className="flex justify-center z-10"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <SubmitBtn />
-          </motion.div>
+          <textarea
+            name="message"
+            placeholder="say hi, share a project, or pitch an idea"
+            required
+            maxLength={5000}
+            rows={4}
+            className="w-full resize-none"
+          />
+
+          <SubmitBtn />
         </motion.form>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }

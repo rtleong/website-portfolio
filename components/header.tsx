@@ -1,79 +1,76 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { usePathname } from "next/navigation";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { navLinks, siteContent } from "@/lib/data";
 
 export default function Header() {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = React.useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="z-[999] relative">
-      <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-gray-600/20 bg-white/5 backdrop-blur-[0.5rem] shadow-2xl shadow-black/[0.03] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full"
-        initial={{ y: -100, x: "-50%", opacity: 0 }}
-        animate={{ y: 0, x: "-50%", opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 380,
-          damping: 30,
-        }}
-      />
+    <motion.header
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+      className={clsx(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "bg-bg/80 backdrop-blur-md border-b border-line"
+          : "bg-transparent border-b border-transparent"
+      )}
+    >
+      <div className="max-w-[90rem] mx-auto flex items-center justify-between px-6 sm:px-10 py-5">
+        <Link href="/" className="group flex items-center gap-2">
+          <span className="inline-block w-2.5 h-2.5 rounded-full bg-accent transition-transform group-hover:scale-125" />
+          <span className="font-display text-xl tracking-tight">
+            {siteContent.shortName}
+          </span>
+        </Link>
 
-      <nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
-        <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-300 sm:w-[initial] sm:flex-nowrap sm:gap-5">
-          {links.map((link, index) => (
-            <motion.li
-              className="h-3/4 flex items-center justify-center relative"
-              key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 380,
-                damping: 30,
-              }}
-            >
-              <Link
-                className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 hover:text-white transition-all duration-300 relative group",
-                  {
-                    "text-white": activeSection === link.name,
-                  }
-                )}
-                href={link.hash}
-                onClick={() => {
-                  setActiveSection(link.name);
-                  setTimeOfLastClick(Date.now());
-                }}
-              >
-                {link.name}
-                
-                {/* Hover effect */}
-                <span className="absolute inset-0 bg-gray-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Active indicator */}
-                {link.name === activeSection && (
-                  <motion.span
-                    className="bg-gray-600 rounded-full absolute inset-0 -z-10 shadow-lg"
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
-                )}
-              </Link>
-            </motion.li>
-          ))}
-        </ul>
-      </nav>
-    </header>
+        <nav>
+          <ul className="flex items-center gap-1 text-sm">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    "relative px-4 py-2 rounded-full transition-colors",
+                    isActive(link.href)
+                      ? "text-ink"
+                      : "text-ink-muted hover:text-ink"
+                  )}
+                >
+                  {isActive(link.href) && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-ink/5"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative">{link.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <a
+          href={`mailto:${siteContent.contact.email}`}
+          className="hidden sm:inline-flex items-center gap-2 text-sm text-ink hover:text-accent transition-colors"
+        >
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          available for work
+        </a>
+      </div>
+    </motion.header>
   );
 }
