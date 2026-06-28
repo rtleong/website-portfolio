@@ -19,20 +19,21 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
+// Every logo is forced into a uniform 72×72 square. Wider marks (Bloomberg)
+// scale down with object-contain instead of expanding the tile.
 function LogoMark({ exp }: { exp: Experience }) {
   if (exp.logo) {
     return (
-      <Image
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
         src={exp.logo}
         alt={`${exp.company} logo`}
-        width={56}
-        height={56}
-        className="w-14 h-14 object-contain"
+        className="w-[72px] h-[72px] object-contain shrink-0"
       />
     );
   }
   return (
-    <span className="w-14 h-14 rounded-2xl bg-ink/[0.06] text-ink font-display text-xl flex items-center justify-center tracking-tight">
+    <span className="w-[72px] h-[72px] rounded-2xl bg-ink/[0.06] text-ink font-display text-2xl flex items-center justify-center tracking-tight shrink-0">
       {initials(exp.company)}
     </span>
   );

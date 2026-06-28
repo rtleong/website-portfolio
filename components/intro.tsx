@@ -2,10 +2,8 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
-import { HiOutlineArrowUpRight } from "react-icons/hi2";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
 import { siteContent } from "@/lib/data";
 
 const word = {
@@ -23,7 +21,6 @@ const word = {
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   const sectionRef = React.useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -52,8 +49,8 @@ export default function Intro() {
         transition={{ delay: 0.4, duration: 0.6 }}
         className="hidden sm:flex justify-between text-xs uppercase tracking-[0.2em] text-ink-muted"
       >
-        <span>portfolio / 2025</span>
-        <span>based in los angeles, ca</span>
+        <span>portfolio / 2026</span>
+        <span>based in new york metropolitan area</span>
       </motion.div>
 
       {/* big tagline */}
@@ -97,20 +94,34 @@ export default function Intro() {
           transition={{ delay: 1.1, duration: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <Link
-            href={siteContent.hero.primaryCta.href}
-            onClick={() => {
-              setActiveSection("Contact");
-              setTimeOfLastClick(Date.now());
-            }}
+          <a
+            href={siteContent.hero.secondaryCta.href}
+            download
             className="btn-primary"
           >
-            {siteContent.hero.primaryCta.label}
-            <HiOutlineArrowUpRight className="text-base" />
-          </Link>
-
-          <a href={siteContent.hero.secondaryCta.href} download className="btn-ghost">
             {siteContent.hero.secondaryCta.label}
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/riley-leong/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="btn-ghost"
+          >
+            <FaLinkedinIn className="text-base" />
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/rtleong"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="btn-ghost"
+          >
+            <FaGithub className="text-base" />
+            GitHub
           </a>
         </motion.div>
       </motion.div>

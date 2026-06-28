@@ -40,9 +40,25 @@
         "async": false
       }
     },
-    "(app-client)/./app/template.tsx": {
+    "(app-client)/./node_modules/react-hot-toast/dist/index.mjs": {
       "*": {
-        "id": "(sc_client)/./app/template.tsx",
+        "id": "(sc_client)/./node_modules/react-hot-toast/dist/index.mjs",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./components/header.tsx": {
+      "*": {
+        "id": "(sc_client)/./components/header.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./components/footer.tsx": {
+      "*": {
+        "id": "(sc_client)/./components/footer.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -64,49 +80,9 @@
         "async": false
       }
     },
-    "(app-client)/./public/gx-preview.png": {
-      "*": {
-        "id": "(sc_client)/./public/gx-preview.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./public/myersbriggs.png": {
-      "*": {
-        "id": "(sc_client)/./public/myersbriggs.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./public/conceptmapper.png": {
       "*": {
         "id": "(sc_client)/./public/conceptmapper.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./node_modules/react-hot-toast/dist/index.mjs": {
-      "*": {
-        "id": "(sc_client)/./node_modules/react-hot-toast/dist/index.mjs",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./components/header.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/header.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./components/footer.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/footer.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -147,6 +123,14 @@
     "(app-client)/./components/skills.tsx": {
       "*": {
         "id": "(sc_client)/./components/skills.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/template.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/template.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -235,56 +219,24 @@
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\template.tsx": {
-      "id": "(app-client)/./app/template.tsx",
-      "name": "*",
-      "chunks": [
-        "app/template:static/chunks/app/template.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\active-section-context.tsx": {
-      "id": "(app-client)/./context/active-section-context.tsx",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\HealthyCommunities.png": {
-      "id": "(app-client)/./public/HealthyCommunities.png",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\gx-preview.png": {
-      "id": "(app-client)/./public/gx-preview.png",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\myersbriggs.png": {
-      "id": "(app-client)/./public/myersbriggs.png",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\conceptmapper.png": {
-      "id": "(app-client)/./public/conceptmapper.png",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\react-hot-toast\\dist\\index.mjs": {
       "id": "(app-client)/./node_modules/react-hot-toast/dist/index.mjs",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sans\",\"fallback\":[\"system-ui\",\"-apple-system\",\"Segoe UI\",\"Roboto\",\"sans-serif\"]}],\"variableName\":\"inter\"}": {
+      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sans\",\"fallback\":[\"system-ui\",\"-apple-system\",\"Segoe UI\",\"Roboto\",\"sans-serif\"]}],\"variableName\":\"inter\"}",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"variable\":\"--font-serif\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerif\"}": {
+      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"variable\":\"--font-serif\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerif\"}",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
@@ -307,16 +259,24 @@
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sans\",\"fallback\":[\"system-ui\",\"-apple-system\",\"Segoe UI\",\"Roboto\",\"sans-serif\"]}],\"variableName\":\"inter\"}": {
-      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sans\",\"fallback\":[\"system-ui\",\"-apple-system\",\"Segoe UI\",\"Roboto\",\"sans-serif\"]}],\"variableName\":\"inter\"}",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\context\\active-section-context.tsx": {
+      "id": "(app-client)/./context/active-section-context.tsx",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"variable\":\"--font-serif\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerif\"}": {
-      "id": "(app-client)/./node_modules/next/font/google/target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"DM_Serif_Display\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"400\",\"display\":\"swap\",\"variable\":\"--font-serif\",\"fallback\":[\"Georgia\",\"Times New Roman\",\"serif\"]}],\"variableName\":\"dmSerif\"}",
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\HealthyCommunities.png": {
+      "id": "(app-client)/./public/HealthyCommunities.png",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\public\\conceptmapper.png": {
+      "id": "(app-client)/./public/conceptmapper.png",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
@@ -370,13 +330,21 @@
         "app/page:static/chunks/app/page.js"
       ],
       "async": false
+    },
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\template.tsx": {
+      "id": "(app-client)/./app/template.tsx",
+      "name": "*",
+      "chunks": [
+        "app/template:static/chunks/app/template.js"
+      ],
+      "async": false
     }
   },
   "entryCSSFiles": {
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\template": [],
     "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\layout": [
       "static/css/app/layout.css"
     ],
-    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\page": []
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\page": [],
+    "C:\\Users\\Riley\\Desktop\\cursor_website\\website-portfolio\\app\\template": []
   }
 }

@@ -68,7 +68,7 @@ export default function Header() {
           className="hidden sm:inline-flex items-center gap-2 text-sm text-ink hover:text-accent transition-colors"
         >
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          available for work
+          bookings available
         </a>
       </div>
     </motion.header>
