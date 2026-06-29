@@ -186,39 +186,86 @@ export const siteContent = {
   },
 
   // ---------------------------------------------------------------------
-  // /bookings page (DJ)
+  // /hobbies page
+  //
+  // The left rail is auto-built from the section list (Google-Docs-style
+  // outline). Each section:
+  //   • id     — anchor slug; used for scroll + the outline link
+  //   • title  — heading shown in the outline and on the page
+  //   • body   — array of paragraphs
+  //   • photos — optional [{ src, alt, caption }] (drop files in /public)
+  //   • links  — optional [{ label, href }] rendered as pills
+  // Reorder / add / remove freely — the outline updates automatically.
   // ---------------------------------------------------------------------
-  bookingsPage: {
-    eyebrow: "DJ",
-    title: "Bookings & sets",
+  hobbiesPage: {
+    eyebrow: "Outside work",
+    title: "Hobbies",
     subtitle:
-      "House, disco, and open-format. Available for clubs, weddings, private events, and brand activations across LA + the Bay Area.",
-    djName: "RLNG",
-    // Drop image paths into /public and reference them by "/file.jpg".
-    photos: [
-      { src: "/profile.jpg", alt: "Set at Venue 1", caption: "Sept 2025 — Los Angeles" },
-      { src: "/profile.jpg", alt: "Set at Venue 2", caption: "Aug 2025 — San Francisco" },
-      { src: "/profile.jpg", alt: "Set at Venue 3", caption: "Jul 2025 — Private Event" },
-      { src: "/profile.jpg", alt: "Set at Venue 4", caption: "Jun 2025 — Festival" },
-      { src: "/profile.jpg", alt: "Set at Venue 5", caption: "May 2025 — Wedding" },
-      { src: "/profile.jpg", alt: "Set at Venue 6", caption: "Apr 2025 — Brand Activation" },
+      "The things I pour my off-hours into — music, books, training, games, and people.",
+    sections: [
+      {
+        id: "mixing",
+        title: "Mixing",
+        body: [
+          "I DJ sometimes. house, disco, and open-format sets for clubs, weddings, and private events.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [
+          { label: "SoundCloud", href: "https://soundcloud.com/" },
+          { label: "Mixcloud", href: "https://www.mixcloud.com/" },
+        ],
+      },
+      {
+        id: "reading-and-media",
+        title: "Reading & Media",
+        body: [
+          "I read across systems thinking, product, and the occasional sci-fi tangent.",
+          "Replace this with current reads, favorite essays, podcasts, or a Goodreads link.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [] as { label: string; href: string }[],
+      },
+      {
+        id: "exercise",
+        title: "Exercise",
+        body: [
+          "Currently training for my first full marathon — long runs on weekends, lifting through the week.",
+          "Replace with your training routine, PRs, or races on the calendar.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [] as { label: string; href: string }[],
+      },
+      {
+        id: "gaming",
+        title: "Gaming",
+        body: [
+          "Strategy, roguelikes, and the occasional competitive grind.",
+          "Replace with your go-to titles and what you love about them.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [] as { label: string; href: string }[],
+      },
+      {
+        id: "mentorship",
+        title: "Mentorship",
+        body: [
+          "I mentor students breaking into tech and data — résumé reviews, mock interviews, and career chats.",
+          "Replace with the programs you're involved in or how people can reach out.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [] as { label: string; href: string }[],
+      },
+      {
+        id: "speaking",
+        title: "Speaking",
+        body: [
+          "I enjoy giving talks and panels on data, product, and the student-to-industry transition.",
+          "Replace with past talks, slides, or topics you're open to speaking on.",
+        ],
+        photos: [] as { src: string; alt: string; caption?: string }[],
+        links: [] as { label: string; href: string }[],
+      },
     ],
-    // Past or upcoming gigs.
-    gigs: [
-      { date: "Oct 12, 2025", venue: "TBD",            city: "Los Angeles, CA", status: "upcoming" as const, link: "" },
-      { date: "Sep 06, 2025", venue: "Sample Venue A", city: "Los Angeles, CA", status: "past" as const,     link: "" },
-      { date: "Aug 22, 2025", venue: "Sample Venue B", city: "San Francisco, CA", status: "past" as const,   link: "" },
-      { date: "Jul 18, 2025", venue: "Private Event",  city: "Malibu, CA",        status: "past" as const,   link: "" },
-    ],
-    // Where listeners can find your sets / socials.
-    links: [
-      { label: "SoundCloud", href: "https://soundcloud.com/" },
-      { label: "Mixcloud",   href: "https://www.mixcloud.com/" },
-      { label: "Instagram",  href: "https://instagram.com/" },
-    ],
-    bookingEmail: "rileyleong24@g.ucla.edu",
-    bookingBlurb:
-      "For booking inquiries, email me with the date, venue, set length, and vibe.",
   },
 
   // footer
@@ -236,7 +283,7 @@ export const siteContent = {
 export const navLinks = [
   { name: "experiences", href: "/" },
   { name: "about", href: "/about" },
-  { name: "bookings", href: "/bookings" },
+  { name: "hobbies", href: "/hobbies" },
 ] as const;
 
 // Legacy in-page section links (still used by the hooks for active-section
