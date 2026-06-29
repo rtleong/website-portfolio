@@ -21,20 +21,27 @@ function initials(name: string): string {
 
 // Every logo is forced into a uniform 72×72 square. Wider marks (Bloomberg)
 // scale down with object-contain instead of expanding the tile.
+//
+// Note: `company`/`logo` are read up-front. If we referenced `exp` only inside
+// the fallback branch, TypeScript would narrow it to `never` whenever every
+// entry happens to have a non-empty `logo` literal (an `as const` quirk).
 function LogoMark({ exp }: { exp: Experience }) {
-  if (exp.logo) {
+  const company = exp.company;
+  const logo = exp.logo as string;
+
+  if (logo) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={exp.logo}
-        alt={`${exp.company} logo`}
+        src={logo}
+        alt={`${company} logo`}
         className="w-[72px] h-[72px] object-contain shrink-0"
       />
     );
   }
   return (
     <span className="w-[72px] h-[72px] rounded-2xl bg-ink/[0.06] text-ink font-display text-2xl flex items-center justify-center tracking-tight shrink-0">
-      {initials(exp.company)}
+      {initials(company)}
     </span>
   );
 }

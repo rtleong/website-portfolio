@@ -77,46 +77,44 @@ function ProjectCard({
             }`}
           />
         )}
+      </button>
 
-        {/* Hover caption — title + inline CTA links */}
-        <div
-          className={`absolute inset-x-0 bottom-0 px-5 py-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-bg bg-gradient-to-t from-ink/85 via-ink/55 to-transparent transition-opacity duration-300 ${
-            hovered ? "opacity-100" : "opacity-0"
-          }`}
+      {/* Caption below the tile — title in ink + inline CTA links */}
+      <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
+        <button
+          type="button"
+          onClick={onOpen}
+          className="font-display text-lg sm:text-xl tracking-tight text-ink text-left hover:text-accent transition-colors"
         >
-          <span className="font-display text-lg sm:text-xl tracking-tight">
-            {project.title}
-          </span>
-          {(project.link || project.articleLink) && (
-            <span className="opacity-60">·</span>
-          )}
-          {project.link && (
+          {project.title}
+        </button>
+        {project.link && (
+          <>
+            <span className="text-ink-muted">·</span>
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="underline underline-offset-4 hover:text-accent transition-colors"
+              className="text-accent underline underline-offset-4 hover:opacity-70 transition-opacity"
             >
               Try it out
             </a>
-          )}
-          {project.link && project.articleLink && (
-            <span className="opacity-60">·</span>
-          )}
-          {project.articleLink && (
+          </>
+        )}
+        {project.articleLink && (
+          <>
+            <span className="text-ink-muted">·</span>
             <a
               href={project.articleLink}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="underline underline-offset-4 hover:text-accent transition-colors"
+              className="text-accent underline underline-offset-4 hover:opacity-70 transition-opacity"
             >
               Check it out
             </a>
-          )}
-        </div>
-      </button>
+          </>
+        )}
+      </div>
     </motion.div>
   );
 }
@@ -145,7 +143,17 @@ function ProjectModal({
     };
   }, [onClose]);
 
-  const hasStack = project.stack?.some((g) => g.items.length > 0);
+  // `project` is a union of two differently-shaped const objects, so the raw
+  // array members carry incompatible literal-tuple signatures. Normalize to
+  // uniform array types before iterating.
+  const stack = (project.stack ?? []) as readonly {
+    label: string;
+    items: readonly string[];
+  }[];
+  const intro = (project.intro ?? []) as readonly string[];
+  const tags = project.tags as readonly string[];
+
+  const hasStack = stack.some((g) => g.items.length > 0);
 
   return (
     <motion.div
@@ -215,7 +223,7 @@ function ProjectModal({
           {/* Stack grid (4-column auto-fit) */}
           {hasStack && (
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-8 border-t border-line pt-8">
-              {project.stack
+              {stack
                 .filter((g) => g.items.length > 0)
                 .map((group) => (
                   <div key={group.label}>
@@ -248,18 +256,18 @@ function ProjectModal({
           )}
 
           {/* Long-form intro */}
-          {project.intro && project.intro.length > 0 && (
+          {intro.length > 0 && (
             <div className="mt-10 space-y-5 text-base sm:text-lg leading-relaxed text-ink-muted max-w-2xl">
-              {project.intro.map((p, i) => (
+              {intro.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
           )}
 
           {/* Tag fallback (only if stack is empty) */}
-          {!hasStack && project.tags.length > 0 && (
+          {!hasStack && tags.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-ink-muted">
-              {project.tags.map((t) => (
+              {tags.map((t) => (
                 <span key={t}>{t}</span>
               ))}
             </div>
