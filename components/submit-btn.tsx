@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { experimental_useFormStatus as useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 
 export default function SubmitBtn() {

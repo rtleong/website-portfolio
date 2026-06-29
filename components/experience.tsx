@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineArrowUpRight, HiXMark } from "react-icons/hi2";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
+import { EASE } from "@/lib/motion";
 
 type Experience = (typeof experiencesData)[number];
 
@@ -122,7 +123,7 @@ function ExperienceModal({
         initial={{ opacity: 0, y: 32, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 24, scale: 0.98 }}
-        transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+        transition={{ duration: 0.35, ease: EASE }}
         className="relative w-full max-w-4xl bg-bg rounded-3xl shadow-2xl my-6 overflow-hidden"
       >
         {/* Close */}

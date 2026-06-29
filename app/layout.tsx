@@ -4,6 +4,7 @@ import { Inter, DM_Serif_Display } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
 import { siteContent } from "@/lib/data";
 
 const inter = Inter({
@@ -54,6 +55,7 @@ export default function RootLayout({
         </ActiveSectionContextProvider>
 
         <div className="noise" />
+        <Analytics />
       </body>
     </html>
   );

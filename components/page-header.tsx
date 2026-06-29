@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { EASE } from "@/lib/motion";
 
 export default function PageHeader({
   eyebrow,
@@ -26,7 +27,7 @@ export default function PageHeader({
       <motion.h1
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.05, ease: [0.2, 0.8, 0.2, 1] }}
+        transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
         className="font-display text-[clamp(2rem,5.5vw,5.25rem)] tracking-tight leading-[1.05] mt-3 max-w-[20ch]"
       >
         {title}

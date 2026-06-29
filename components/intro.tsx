@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { siteContent } from "@/lib/data";
+import { EASE } from "@/lib/motion";
 
 const word = {
   hidden: { y: "100%", opacity: 0 },
@@ -14,7 +15,7 @@ const word = {
     transition: {
       delay: 0.08 * i + 0.2,
       duration: 0.9,
-      ease: [0.2, 0.8, 0.2, 1],
+      ease: EASE,
     },
   }),
 };

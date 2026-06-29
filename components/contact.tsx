@@ -8,6 +8,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import { siteContent } from "@/lib/data";
+import { EASE } from "@/lib/motion";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact", 0.3);
@@ -31,7 +32,7 @@ export default function Contact() {
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ duration: 0.9, delay: i * 0.08, ease: EASE }}
               className="inline-block"
             >
               {line}

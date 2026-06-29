@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { navLinks, siteContent } from "@/lib/data";
+import { EASE } from "@/lib/motion";
 
 export default function Header() {
   const pathname = usePathname();
@@ -20,7 +21,7 @@ export default function Header() {
     <motion.header
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+      transition={{ duration: 0.6, ease: EASE }}
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
