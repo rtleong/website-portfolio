@@ -2,11 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import toast from "react-hot-toast";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
+import DrawingPad from "./drawing-pad";
 import { siteContent } from "@/lib/data";
 import { EASE } from "@/lib/motion";
 
@@ -25,9 +23,9 @@ export default function Contact() {
         ({siteContent.contact.eyebrow})
       </span>
 
-      <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)] leading-[1.05] tracking-tight mt-4 mb-12 max-w-[18ch]">
+      <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)] leading-[1.25] tracking-tight mt-4 mb-12 max-w-[18ch]">
         {headlineLines.map((line, i) => (
-          <span key={i} className="block overflow-hidden">
+          <span key={i} className="block overflow-hidden pb-[0.22em] -mb-[0.22em]">
             <motion.span
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
@@ -73,47 +71,16 @@ export default function Contact() {
           </ul>
         </div>
 
-        {/* Right: quick form */}
-        <motion.form
+        {/* Right: draw-and-ship pad (a fun data-engineering showcase) */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="md:col-span-5 space-y-6"
-          action={async (formData) => {
-            const { error } = await sendEmail(formData);
-            if (error) {
-              toast.error(error);
-              return;
-            }
-            toast.success("Message sent. Talk soon!");
-          }}
+          className="md:col-span-5"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-ink-muted">
-            or send a quick note ↓
-          </p>
-
-          <input
-            name="senderEmail"
-            type="email"
-            required
-            maxLength={500}
-            placeholder="your email"
-            autoComplete="email"
-            className="w-full"
-          />
-
-          <textarea
-            name="message"
-            placeholder="say hi, share a project, or pitch an idea"
-            required
-            maxLength={5000}
-            rows={4}
-            className="w-full resize-none"
-          />
-
-          <SubmitBtn />
-        </motion.form>
+          <DrawingPad />
+        </motion.div>
       </div>
     </section>
   );

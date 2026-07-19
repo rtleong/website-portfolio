@@ -3,7 +3,7 @@ import easyA from "@/public/easy_apostrophe_demo.gif";
 import cmIMG from "@/public/conceptmapper.png";
 
 // ---------------------------------------------------------------------------
-// EDIT-ME — everything user-visible lives in this file.
+// everything user-visible lives in this file.
 // ---------------------------------------------------------------------------
 
 export const siteContent = {
@@ -15,7 +15,7 @@ export const siteContent = {
   hero: {
     // The big tagline. Break lines manually with \n.
     tagline:
-      "Innovation is where engineering meets empathy",
+      "innovation is where engineering meets empathy",
     // smaller line under the tagline
     subtitle:
       "Math + CS @ UCLA. Data, Product, and Engineering — exploring where science meets insight.",
@@ -42,13 +42,27 @@ export const siteContent = {
     eyebrow: "Contact",
     headline: "Let's make\nsomething together.",
     blurb:
-      "I'm always open to internship, full-time, and side-project conversations.",
+      "Excited to talk about anything tech, music, or fitness!",
     email: "rileyleong24@g.ucla.edu",
     socials: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/riley-leong/" },
       { label: "GitHub", href: "https://github.com/rtleong" },
       { label: "Email", href: "mailto:rileyleong24@g.ucla.edu" },
     ],
+    // The drawing-pad showcase that replaces the message form.
+    drawing: {
+      prompt: "or draw me something ↓",
+      shipLabel: "Ship it",
+      successMessage: "Successfully shipped to Riley's AWS instance!!",
+      throttleMessage: "Whoa, slow down. Rate limit hit, give it a second.",
+      aboutLabel: "read more about this feature",
+      aboutTitle: "How this ships",
+      about: [
+        "Every drawing you ship is flattened to a PNG and uploaded straight into an S3 bucket I connected, keyed by a timestamp so nothing overwrites.",
+        "The button is rate limited with a token-bucket limiter. Spam it and you will get throttled instead of firing a hundred requests, so nobody can hammer my AWS instance or run up my bill.",
+        "It is a tiny thing, because this site is not heavily trafficked and the PNG's will likely never fill the minimum instance I pay for even if someone sends 10,000 pieces of art, but the careful approach is how I like to approach all development.",
+      ],
+    },
   },
 
   // ---------------------------------------------------------------------
@@ -56,12 +70,12 @@ export const siteContent = {
   // ---------------------------------------------------------------------
   aboutPage: {
     eyebrow: "About",
-    title: "A quick story",
+    title: "beyond the resume",
     subtitle:
-      "Math, code, music, and a habit of trying things until they work.",
+      '"I think so ∴ I am."',
     intro: [
-      "UCLA Graduate c/o 2026, B.S in Mathematics of Computation (joint Math + CS).",
-      "Data Management Professional @ Bloomberg LP in the NY Metro Area",
+      "UCLA Graduate c/o 2026, B.S in Mathematics of Computation.",
+      "Data Management Professional @ Bloomberg LP in NY Metro Area",
     ],
     // Edit these freely. Each item is clickable on /about and opens a modal.
     //   • title   — required, shown on the tile
@@ -185,6 +199,56 @@ export const siteContent = {
     },
   },
 
+
+  // ---------------------------------------------------------------------
+  // /blog page — a 2-up grid of post cards. Each post:
+  //   • category — small eyebrow above the title (e.g. "EAT AT HOME")
+  //   • title    — post headline
+  //   • author   — byline shown in the meta line
+  //   • date     — display date string
+  //   • image    — cover image path in /public (drop files in /public/blog)
+  //   • excerpt  — the opening blurb / subtitle shown under the image
+  //   • href     — link to the full article ("Read more")
+  // Add / remove entries freely — the grid fills left-to-right, 2 per row.
+  // ---------------------------------------------------------------------
+  blogPage: {
+    eyebrow: "Writing",
+    title: "blog(s)",
+    subtitle:
+      "Posts about any thoughts, events, milestones, or personal elements I want to share.",
+    posts: [
+      {
+        category: "Eat at Home",
+        title: "Omelets: Good for Budget and Bank",
+        author: "The Budgeting Shopaholic",
+        date: "May 30, 2026",
+        image: "/projects/in-development.png",
+        excerpt:
+          "Breakfast is the most important meal of the day. We have heard this our whole lives, and I don't know about you, but I slack in this area. We have to get excited about breakfast…",
+        href: "#",
+      },
+      {
+        category: "Sample Post",
+        title: "Replace Me With Your Second Article",
+        author: "Riley Leong",
+        date: "Jun 2026",
+        image: "/projects/in-development.png",
+        excerpt:
+          "This is a placeholder card so you can see the two-column layout. Swap the image, title, and excerpt, then point the read-more link at the real article.",
+        href: "#",
+      },
+    ] as {
+      category: string;
+      title: string;
+      author: string;
+      date: string;
+      image: string;
+      excerpt: string;
+      href: string;
+    }[],
+  },
+
+
   // ---------------------------------------------------------------------
   // /hobbies page
   //
@@ -199,29 +263,73 @@ export const siteContent = {
   // ---------------------------------------------------------------------
   hobbiesPage: {
     eyebrow: "Outside work",
-    title: "Hobbies",
+    title: "hobbies",
     subtitle:
-      "The things I pour my off-hours into — music, books, training, games, and people.",
+      '"It is both scary and liberating to have periods of no obligation, and what we do with that time tells us a lot about ourselves." - meh',
+    // Each section has a `gallery` — a flip-through carousel. Drop image files
+    // in /public/hobbies/ and add an entry per item:
+    //   { src: "/hobbies/dune.jpg", title: "Dune", note: "your thoughts…" }
+    // `title` shows on the image; clicking the image expands `note`. Arrows to
+    // flip between items appear on hover. `galleryAspect` sets the frame shape:
+    //   "3/4" (book covers / portrait), "4/3" (photos), "1/1", "16/9".
     sections: [
       {
-        id: "mixing",
+        id: "Mixing and Producing",
         title: "Mixing",
         body: [
-          "I DJ sometimes. house, disco, and open-format sets for clubs, weddings, and private events.",
+          "I DJ events as an amateur, usually spinning the house and hip-hop that venues request, though trance has been a personal favorite of mine for years.",
+          "The production side of music is a newer hobby for me. It is fun to combine math and music into something both technical and aesthetic, and I like to think my 10 years of piano experience sneaks in there too.",
         ],
+        galleryAspect: "4/3",
+        gallery: [
+          {
+            src: "/logos/headphones.png",
+            title: "Sample — Headphones",
+            note: "This is placeholder text to test the expand. Replace this entry with a real photo and your own thoughts.",
+          },
+          {
+            src: "/profile.jpg",
+            title: "Sample — Profile",
+            note: "Second placeholder. Click the arrows to flip between items, click the image to toggle this note.",
+          },
+          {
+            src: "/gx-preview.png",
+            title: "Sample — Preview",
+            note: "Third placeholder — no strong reason for these images, they're just here so you can test the carousel.",
+          },
+        ] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
         links: [
-          { label: "SoundCloud", href: "https://soundcloud.com/" },
-          { label: "Mixcloud", href: "https://www.mixcloud.com/" },
+          { label: "SoundCloud", href: "https://soundcloud.com/ri_leee" },
+          { label: "Spotify", href: "https://open.spotify.com/user/pandalover2457" },
         ],
       },
       {
         id: "reading-and-media",
         title: "Reading & Media",
         body: [
-          "I read across systems thinking, product, and the occasional sci-fi tangent.",
-          "Replace this with current reads, favorite essays, podcasts, or a Goodreads link.",
+          "I make it a point to read for non-technical and non-academic purposes. Fiction, with its fantastical elements, often nudges me to think about the world a little differently, and I like that.",
+          "Below are some of my recent reads. Feel free to click through and see a few thoughts.",
         ],
+        galleryAspect: "3/4",
+        gallery: [
+          {
+            src: "/tomorrow_book.jpeg",
+            title: "Finished July 2026",
+            note: "A wonderful premise about a young boy in an accident and young girl navigating having a sister with a terminal illness forming a relationship stronger than romantic, middle was a little too graphic, conclusion was fantastic.",
+          },
+          {
+            src: "/amanssearch.jpg",
+            title: "Finished May 2026",
+            note: "A unique perspective on the tragedy of the Holocaust, and the author's journey of self-discovery while losing all sense of self.",
+          },
+          {
+            src: "/theodyssey.jpg",
+            title: "Finished March 2026",
+            note: "Reread in preperation for the Nolan film",
+          },
+
+        ] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
         links: [] as { label: string; href: string }[],
       },
@@ -229,9 +337,11 @@ export const siteContent = {
         id: "exercise",
         title: "Exercise",
         body: [
-          "Currently training for my first full marathon — long runs on weekends, lifting through the week.",
-          "Replace with your training routine, PRs, or races on the calendar.",
+          "I used to believe exercise was only worthwhile if it was fun. Now that I have graduated and sit for far too long, I have accepted that it is simply a necessity.",
+          "I play soccer regularly, having played for most of my life. More recently I am training for my first full marathon after finishing my first half, slowly learning tennis, and trying to get back into lifting.",
         ],
+        galleryAspect: "4/3",
+        gallery: [] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
         links: [] as { label: string; href: string }[],
       },
@@ -239,9 +349,11 @@ export const siteContent = {
         id: "gaming",
         title: "Gaming",
         body: [
-          "Strategy, roguelikes, and the occasional competitive grind.",
-          "Replace with your go-to titles and what you love about them.",
+          "A big hobby of mine. Fun fact: my brother and I became competitive Fortnite players during the pandemic and earned money competing in tournaments.",
+          "I am currently in a Rocket League phase, and I always look forward to a Minecraft world around Christmas time.",
         ],
+        galleryAspect: "16/9",
+        gallery: [] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
         links: [] as { label: string; href: string }[],
       },
@@ -249,19 +361,11 @@ export const siteContent = {
         id: "mentorship",
         title: "Mentorship",
         body: [
-          "I mentor students breaking into tech and data — résumé reviews, mock interviews, and career chats.",
-          "Replace with the programs you're involved in or how people can reach out.",
+          "When I joined UCLA, an alumni mentor led me to a professional organization that shaped my whole path there. In that org I took on leadership positions and grew into mentorship roles myself.",
+          "I still practice those skills today by mentoring UCLA students who I meet with weekly, paying forward exactly what that alumnus did for me.",
         ],
-        photos: [] as { src: string; alt: string; caption?: string }[],
-        links: [] as { label: string; href: string }[],
-      },
-      {
-        id: "speaking",
-        title: "Speaking",
-        body: [
-          "I enjoy giving talks and panels on data, product, and the student-to-industry transition.",
-          "Replace with past talks, slides, or topics you're open to speaking on.",
-        ],
+        galleryAspect: "4/3",
+        gallery: [] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
         links: [] as { label: string; href: string }[],
       },
@@ -282,7 +386,7 @@ export const siteContent = {
 // Route-based navigation. Each entry becomes a top-level page.
 export const navLinks = [
   { name: "experiences", href: "/" },
-  { name: "about", href: "/about" },
+  { name: "blog", href: "/blog" },
   { name: "hobbies", href: "/hobbies" },
 ] as const;
 
@@ -317,23 +421,28 @@ export const links = [
 //   • tags          — chips at the bottom of the modal (optional)
 //   • link          — optional external link button in the modal
 //   • cover         — optional banner image path for the modal hero
+//   • projects      — optional array of deeper project breakdowns. Each is a
+//                     clickable row in the modal that expands in place:
+//                     [{ title, summary, body: [...], stack: [...] }]
 //
 export const experiencesData = [
   {
     company: "Bloomberg",
     logo: "/logos/Bloomberg_LP.png",
     role: "Data Management Professional",
-    timeline: "2026 — Present",
+    timeline: "Aug 2026 — Present",
     location: "New York Metro Area",
     org: "Data",
     collaborators: [],
     body: [
+      "Starting August 24th, 2026, I will be joining Bloomberg as a Data Management Professional in the New York Metro Area.",
       "Working on the financial data that powers the world — data pipelines, dashboards, and internal tooling supporting Bloomberg's data operations.",
       "Owning quality and coverage of reference data used downstream by trading, research, and analytics teams across the Bloomberg Terminal.",
     ],
     tags: ["Financial Data", "Pipelines", "Internal Tooling", "Operations"],
     link: "",
     cover: "",
+    projects: [],
   },
   {
     company: "Fidelity Investments",
@@ -347,15 +456,28 @@ export const experiencesData = [
       "Engineered a generative-AI tool that lets internal teams quickly search for common production issues based on past MS Teams messages.",
       "Built the retrieval pipeline end-to-end — message ingestion, embedding, vector store, and a lightweight chat surface used by on-call engineers.",
     ],
-    tags: ["Python", "GenAI", "RAG", "Azure"],
+    tags: ["Python", "GenAI", "RAG", "AWS"],
     link: "",
     cover: "",
+    projects: [
+      {
+        title: "Production Issue Chatbot",
+        summary:
+          "A GenAI chatbot that turns scattered team knowledge into instant, searchable answers.",
+        body: [
+          "Pulled unstructured data from MS Teams, Excel, email threads, and Confluence, the team's day-to-day knowledge sources, and organized it into modeled tables and vectorized inputs stored in AWS MemoryDB.",
+          "Combined vector search with GPT-4, approved for use on Fidelity's internal Lumin-8 platform, so users can ask natural-language questions and get answers pulled from past production issues.",
+          "The model is retrained as new teams adopt it. My original team is still building it out, and two additional teams have since started using it.",
+        ],
+        stack: ["Python", "AWS MemoryDB", "Vector Search", "GPT-4", "RAG"],
+      },
+    ],
   },
   {
     company: "OPN Healthcare",
     logo: "/logos/opn.png",
     role: "Product Management Intern",
-    timeline: "Sept 2024 — Jan 2025",
+    timeline: "Sep 2024 — Jan 2025",
     location: "Los Angeles, CA",
     org: "Oncology Analytics",
     collaborators: ["13 data-science interns"],
@@ -366,12 +488,13 @@ export const experiencesData = [
     tags: ["Product", "AGILE", "Healthcare", "Dashboards"],
     link: "",
     cover: "",
+    projects: [],
   },
   {
     company: "First American",
     logo: "/logos/fa_logo.png",
     role: "Data Science Intern",
-    timeline: "Jun 2024 — Sept 2024",
+    timeline: "Jun 2024 — Sep 2024",
     location: "Santa Ana, CA",
     org: "Data Platform",
     collaborators: [],
@@ -382,12 +505,13 @@ export const experiencesData = [
     tags: ["Python", "R", "SQL Server", "ETL"],
     link: "",
     cover: "",
+    projects: [],
   },
   {
     company: "UCLA Mathematics",
     logo: "/logos/ucla.png",
     role: "Undergraduate Teaching Assistant",
-    timeline: "Sept 2023 — Dec 2023",
+    timeline: "Sep 2023 — Dec 2023",
     location: "Los Angeles, CA",
     org: "Mathematics Department",
     collaborators: [],
@@ -398,12 +522,13 @@ export const experiencesData = [
     tags: ["Teaching", "C++", "R"],
     link: "",
     cover: "",
+    projects: [],
   },
   {
     company: "Benicia Unified",
     logo: "/logos/busd.png",
     role: "Associate Substitute Instructor",
-    timeline: "Jun 2023 — Sept 2023",
+    timeline: "Jun 2023 — Sep 2023",
     location: "Benicia, CA",
     org: "K–5 Summer Program",
     collaborators: [],
@@ -413,6 +538,7 @@ export const experiencesData = [
     tags: ["Education", "Curriculum"],
     link: "",
     cover: "",
+    projects: [],
   },
 ] as const;
 
@@ -472,17 +598,16 @@ export const projectsData = {
     {
       title: "Michelin",
       description:
-        "Placeholder — replace with the project description, scope, and outcome.",
+        "Cut the number of brake events required to score a truck in Michelin's Connected Fleet program in half, proving with statistical significance that accuracy held at 95% confidence.",
       intro: [
-        "Placeholder — replace this paragraph with the project context: who you worked with, what problem you were solving, and over what timeline.",
-        "Add a second paragraph with the technical detail and the outcome.",
+        "Michelin's Connected Fleet program required 100 brake events, an arbitrary threshold, before a truck's brake score was considered reliable enough to put it back on the road.",
+        "We proved the score holds within a 95% confidence interval at just 50 events, half the original requirement. Michelin adopted the new 50-event threshold starting Q2 2026, cutting the time it takes trucks to get back on the road in half.",
       ],
-      tags: ["Placeholder"],
+      tags: ["Statistics", "Fleet Analytics"],
       stack: [
-        { label: "UI", items: [] },
-        { label: "Frontend", items: [] },
-        { label: "Backend", items: [] },
-        { label: "Tools", items: [] },
+        { label: "Language", items: ["Python"] },
+        { label: "Methods", items: ["Hypothesis Testing", "Confidence Intervals"] },
+        { label: "Domain", items: ["Connected Fleet Analytics"] },
       ],
       imageUrl: "/logos/michelin.png",
       videoUrl: "",
@@ -490,23 +615,23 @@ export const projectsData = {
       link: "",
       linkLabel: "",
       articleLink: "",
-      year: "TBD",
+      year: "2026",
       size: "wide" as const,
     },
     {
       title: "DENSO",
       description:
-        "Placeholder — replace with the project description, scope, and outcome.",
+        "Built five ML and deep learning models, including ARIMA and Holt-Winters, to forecast demand for DENSO's product lines and optimize inventory. All five are currently in production.",
       intro: [
-        "Placeholder — replace this paragraph with the project context.",
-        "Add a second paragraph with the technical detail and outcome.",
+        "Partnered with DENSO, a global auto parts manufacturer, to forecast demand across a portfolio of products with complex, seasonal ordering patterns.",
+        "Built and evaluated five models in Python, spanning classical time series methods like ARIMA and Holt-Winters alongside deep learning approaches, each suited to a different demand pattern. All five models are currently in production, feeding DENSO's inventory optimization.",
       ],
-      tags: ["Placeholder"],
+      tags: ["Python", "Forecasting", "Machine Learning"],
       stack: [
-        { label: "UI", items: [] },
-        { label: "Frontend", items: [] },
-        { label: "Backend", items: [] },
-        { label: "Tools", items: [] },
+        { label: "Language", items: ["Python"] },
+        { label: "Time Series", items: ["ARIMA", "Holt-Winters"] },
+        { label: "Modelling", items: ["Machine Learning", "Deep Learning"] },
+        { label: "Domain", items: ["Demand Forecasting", "Inventory Optimization"] },
       ],
       imageUrl: "/logos/denso.png",
       videoUrl: "",
@@ -522,25 +647,25 @@ export const projectsData = {
     {
       title: "DBSU",
       description:
-        "Placeholder — replace with the project description, stack, and outcome.",
-      intro: [
-        "Placeholder — replace this paragraph with what DBSU is, who it's for, and why it exists.",
-        "Add the build story, key technical bits, and what you'd ship next.",
+        "A simplified relational database built from scratch, instead of relying on Postgres or MySQL, to understand how storage, querying, and query optimization work under the hood. I led this project for 9 students in our student org to inspire a deeper understanding of database systems and systems design.",
+        intro: [
+        "I led this project for 9 students in our student org to inspire a deeper understanding of database systems and systems design.",
+        "DBSU implements core database functionality manually: data storage, querying, and basic optimization, to bridge the gap between theoretical database concepts and real-world system design.",
+        "The engine stores structured data in tables, supports basic SQL-like operations (SELECT, INSERT, DELETE), and handles simple filtering and joins, with indexing and query optimization as stretch goals.",
       ],
-      tags: ["Placeholder"],
+      tags: ["Databases", "Systems Design"],
       stack: [
-        { label: "UI", items: [] },
-        { label: "Frontend", items: [] },
-        { label: "Backend", items: [] },
-        { label: "Tools", items: [] },
+        { label: "Core", items: ["Storage Engine", "Query Execution"] },
+        { label: "Operations", items: ["SELECT", "INSERT", "DELETE", "Joins"] },
+        { label: "Focus", items: ["Systems Design", "Query Optimization"] },
       ],
-      imageUrl: "/projects/dbsu.png",
-      videoUrl: "",
+      imageUrl: "/dbsu_ss.png",
+      videoUrl: "/dbsu_recording.mp4",
       cover: "",
       link: "",
       linkLabel: "check out the repo!",
       articleLink: "https://github.com/the-data-science-union/DSU-S2026-DBSU-Build-a-Relational-Database",
-      year: "TBD",
+      year: "2026",
       size: "wide" as const,
     },
     {
@@ -549,7 +674,7 @@ export const projectsData = {
         "A personal-finance social-media platform — share, compare, and learn from how friends manage and grow their money.",
       intro: [
         "Nesthive is a feed-style finance app where friends can compare allocations, savings goals, and habits without sharing raw account balances.",
-        "Replace with the build story, stack notes, and roadmap.",
+        "Currently in progress.",
       ],
       tags: ["Placeholder", "Personal Finance", "Social"],
       stack: [
@@ -558,37 +683,37 @@ export const projectsData = {
         { label: "Backend", items: [] },
         { label: "Data", items: [] },
       ],
-      imageUrl: "/projects/nesthive.png",
+      imageUrl: "/projects/in-development.png",
       videoUrl: "",
       cover: "",
       link: "",
       linkLabel: "",
-      articleLink: "",
-      year: "TBD",
+      articleLink: "https://nest-hive.vercel.app/login?next=%2F",
+      year: "2026",
       size: "wide" as const,
     },
     {
       title: "Music Match",
       description:
-        "A matching platform that sources vocalists, producers, and DJs for specific creative briefs — from one-off features to full projects.",
+        "A full-stack app that connects musicians, matching vocalists, producers, and DJs to creative briefs, from one-off features to full projects. In active development.",
       intro: [
-        "Artists post a brief — genre, BPM, deliverables, budget — and Music Match returns a ranked list of vocalists, producers, and DJs that fit the spec.",
-        "Replace with the matching-logic detail, stack, and what's shipped vs. planned.",
+        "Music Match is a full-stack platform built to connect musicians: artists post a brief covering genre, BPM, deliverables, and budget, and the platform returns a ranked list of vocalists, producers, and DJs that fit the spec.",
+        "Currently in active development, with the matching logic, artist profiles, and collaboration workflow taking shape.",
       ],
-      tags: ["Placeholder", "Music", "Marketplace"],
+      tags: ["Full-Stack", "Music", "Marketplace"],
       stack: [
         { label: "UI", items: [] },
         { label: "Frontend", items: [] },
         { label: "Backend", items: [] },
         { label: "Audio", items: [] },
       ],
-      imageUrl: "/projects/musicmatch.png",
+      imageUrl: "/projects/in-development.png",
       videoUrl: "",
       cover: "",
       link: "",
       linkLabel: "",
       articleLink: "",
-      year: "TBD",
+      year: "2026",
       size: "wide" as const,
     },
     {
@@ -621,7 +746,8 @@ export const projectsData = {
         "A VS Code extension that makes building lists of strings, comma-delimited items, and structured snippets effortless.",
       intro: [
         "Highlight a block of identifiers, hit one chord, and Easy-Apostrophe wraps every line in quotes, drops the commas in, and hands you a ready-to-paste array.",
-        "Replace with download numbers and the inspiration behind it.",
+        "Inspired by the repetitive tedium of building lists of comma-delimited items from a MS Teams message while @ First American, used it at work and introduced it to a few co-workers.",
+        "My first program with USERS, got a few downloads but nothing crazy. Not maintained and removed from Marketplace.",
       ],
       tags: ["TypeScript", "VS Code", "GitHub"],
       stack: [

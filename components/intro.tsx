@@ -50,7 +50,7 @@ export default function Intro() {
         transition={{ delay: 0.4, duration: 0.6 }}
         className="hidden sm:flex justify-between text-xs uppercase tracking-[0.2em] text-ink-muted"
       >
-        <span>portfolio / 2026</span>
+        <span>(portfolio / 2026)</span>
         <span>based in new york metropolitan area</span>
       </motion.div>
 
@@ -59,9 +59,9 @@ export default function Intro() {
         style={{ y, opacity }}
         className="flex-1 flex flex-col justify-center"
       >
-        <h1 className="font-display text-[clamp(2rem,5.5vw,5.25rem)] leading-[1.05] tracking-tight max-w-[20ch]">
+        <h1 className="font-display text-[clamp(2rem,5.5vw,5.25rem)] leading-[1.25] tracking-tight max-w-[20ch]">
           {lines.map((line, lineIdx) => (
-            <span key={lineIdx} className="block overflow-hidden">
+            <span key={lineIdx} className="block overflow-hidden pb-[0.22em] -mb-[0.22em]">
               <motion.span
                 custom={lineIdx}
                 variants={word}

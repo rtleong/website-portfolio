@@ -28,6 +28,9 @@ function ProjectCard({
 }) {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = React.useState(false);
+  // Local SVGs must skip Next's image optimizer (it refuses SVG by default).
+  const isSvg =
+    typeof project.imageUrl === "string" && project.imageUrl.endsWith(".svg");
 
   React.useEffect(() => {
     if (!videoRef.current || !project.videoUrl) return;
@@ -58,12 +61,26 @@ function ProjectCard({
         aria-label={`Open ${project.title}`}
         className="relative block w-full aspect-[4/3] overflow-hidden rounded-2xl bg-bg-alt cursor-pointer text-left"
       >
+        {/* Blurred fill — a scaled, blurred copy of the same image so any
+            letterboxing reads as a soft color glow instead of a flat bar */}
+        <Image
+          src={project.imageUrl}
+          alt=""
+          aria-hidden
+          fill
+          unoptimized={isSvg}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover scale-125 blur-2xl saturate-150 opacity-70"
+        />
+
+        {/* Sharp foreground — full image, never cropped */}
         <Image
           src={project.imageUrl}
           alt={project.title}
           fill
+          unoptimized={isSvg}
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.03]"
+          className="object-contain transition-transform duration-[1200ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.03]"
         />
 
         {project.videoUrl && (
@@ -73,25 +90,32 @@ function ProjectCard({
             muted
             loop
             playsInline
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
               hovered ? "opacity-100" : "opacity-0"
             }`}
           />
         )}
       </button>
 
-      {/* Caption below the tile — title in ink + inline CTA links */}
-      <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
+      {/* Caption below the tile — hidden until hover, then fades/slides in
+          with the title + inline CTA links */}
+      <div
+        className={`mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm transition-all duration-300 ease-out ${
+          hovered
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-1 pointer-events-none"
+        }`}
+      >
         <button
           type="button"
           onClick={onOpen}
-          className="font-display text-lg sm:text-xl tracking-tight text-ink text-left hover:text-accent transition-colors"
+          className="font-display text-lg sm:text-xl tracking-tight text-accent text-left hover:opacity-80 transition-opacity"
         >
           {project.title}
         </button>
         {project.link && (
           <>
-            <span className="text-ink-muted">·</span>
+            <span className="text-accent/50">·</span>
             <a
               href={project.link}
               target="_blank"
@@ -104,7 +128,7 @@ function ProjectCard({
         )}
         {project.articleLink && (
           <>
-            <span className="text-ink-muted">·</span>
+            <span className="text-accent/50">·</span>
             <a
               href={project.articleLink}
               target="_blank"
@@ -353,7 +377,7 @@ export default function Projects() {
         sectionRef.current = node;
       }}
       id="work"
-      className="relative scroll-mt-24 py-24 sm:py-28 px-6 sm:px-10 max-w-[90rem] mx-auto"
+      className="relative scroll-mt-24 pt-8 sm:pt-9 pb-24 sm:pb-28 px-6 sm:px-10 max-w-[90rem] mx-auto"
     >
       <div className="flex items-end justify-between mb-12 sm:mb-16 gap-8 flex-wrap">
         <motion.div style={{ y: titleY }}>

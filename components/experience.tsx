@@ -69,7 +69,7 @@ function ExperienceTile({
     >
       <LogoMark exp={exp} />
       <div className="flex-1 min-w-0">
-        <p className="font-display text-base sm:text-lg tracking-tight truncate">
+        <p className="font-display text-base sm:text-lg tracking-tight truncate text-ink">
           {exp.company}
         </p>
         <p className="text-xs uppercase tracking-[0.18em] text-ink-muted mt-1 truncate">
@@ -78,6 +78,72 @@ function ExperienceTile({
       </div>
       <HiOutlineArrowUpRight className="text-ink-muted group-hover:text-ink transition-colors shrink-0" />
     </motion.button>
+  );
+}
+
+// `exp` is a union of differently-shaped const objects, so the raw
+// `projects` array members carry incompatible literal-tuple signatures
+// (same quirk as ProjectModal's `stack` normalization). Define the shape
+// explicitly and cast at the call site instead of relying on indexed access.
+type ExpProject = {
+  title: string;
+  summary: string;
+  body: readonly string[];
+  stack: readonly string[];
+};
+
+// Clickable row that expands in place to reveal a deeper project writeup.
+function ProjectBreakdown({ project }: { project: ExpProject }) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <div className="rounded-2xl border border-line overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-bg-alt transition-colors"
+      >
+        <div>
+          <p className="font-display text-lg tracking-tight">
+            {project.title}
+          </p>
+          <p className="text-sm text-ink-muted mt-1">{project.summary}</p>
+        </div>
+        <HiOutlineArrowUpRight
+          className={`shrink-0 text-ink-muted transition-transform duration-300 ${
+            open ? "rotate-90" : ""
+          }`}
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-6 space-y-4 border-t border-line pt-5">
+              {project.body.map((p, i) => (
+                <p key={i} className="text-sm sm:text-base leading-relaxed text-ink-muted">
+                  {p}
+                </p>
+              ))}
+              {project.stack.length > 0 && (
+                <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-ink-muted">
+                  {project.stack.map((s) => (
+                    <span key={s}>{s}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -177,6 +243,23 @@ function ExperienceModal({
               <p key={i}>{p}</p>
             ))}
           </div>
+
+          {/* Project breakdowns — clickable, expand in place */}
+          {(() => {
+            const projects = exp.projects as readonly ExpProject[];
+            return (
+              projects.length > 0 && (
+                <div className="mt-10 space-y-3 max-w-2xl">
+                  <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+                    Project breakdown
+                  </p>
+                  {projects.map((project) => (
+                    <ProjectBreakdown key={project.title} project={project} />
+                  ))}
+                </div>
+              )
+            );
+          })()}
 
           {/* Tags */}
           {exp.tags.length > 0 && (
