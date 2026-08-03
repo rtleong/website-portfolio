@@ -23,7 +23,14 @@ export default function Blog() {
   );
 }
 
+// Every "Read more" points at an external article (Medium), so links open in a
+// new tab rather than routing anywhere inside the site.
 function BlogCard({ post, index }: { post: Post; index: number }) {
+  const href = post.href;
+  const external = href.startsWith("http");
+  const linkProps = external
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -40,7 +47,7 @@ function BlogCard({ post, index }: { post: Post; index: number }) {
       )}
 
       {/* Title */}
-      <a href={post.href} className="mt-3 block">
+      <a href={href} {...linkProps} className="mt-3 block">
         <h2 className="font-display text-3xl sm:text-4xl tracking-tight leading-[1.08] group-hover:text-accent transition-colors">
           {post.title}
         </h2>
@@ -54,7 +61,8 @@ function BlogCard({ post, index }: { post: Post; index: number }) {
 
       {/* Cover image */}
       <a
-        href={post.href}
+        href={href}
+        {...linkProps}
         className="mt-6 block relative w-full aspect-[16/9] overflow-hidden rounded-2xl bg-bg-alt"
       >
         <Image
@@ -73,7 +81,8 @@ function BlogCard({ post, index }: { post: Post; index: number }) {
 
       {/* Read more */}
       <a
-        href={post.href}
+        href={href}
+        {...linkProps}
         className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:opacity-70 transition-opacity self-start"
       >
         Read more

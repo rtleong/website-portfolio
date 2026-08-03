@@ -208,7 +208,8 @@ export const siteContent = {
   //   • date     — display date string
   //   • image    — cover image path in /public (drop files in /public/blog)
   //   • excerpt  — the opening blurb / subtitle shown under the image
-  //   • href     — link to the full article ("Read more")
+  //   • href     — the Medium article URL. "Read more" (and the title / cover)
+  //                open it in a new tab. Paste the real Medium link here.
   // Add / remove entries freely — the grid fills left-to-right, 2 per row.
   // ---------------------------------------------------------------------
   blogPage: {
@@ -218,24 +219,15 @@ export const siteContent = {
       "Posts about any thoughts, events, milestones, or personal elements I want to share.",
     posts: [
       {
-        category: "Eat at Home",
-        title: "Omelets: Good for Budget and Bank",
-        author: "The Budgeting Shopaholic",
-        date: "May 30, 2026",
-        image: "/projects/in-development.png",
-        excerpt:
-          "Breakfast is the most important meal of the day. We have heard this our whole lives, and I don't know about you, but I slack in this area. We have to get excited about breakfast…",
-        href: "#",
-      },
-      {
-        category: "Sample Post",
-        title: "Replace Me With Your Second Article",
+        category: "Math & Science",
+        title: "Linear Algebra in a labcoat: A math undergrad thoughts on the qubit",
         author: "Riley Leong",
-        date: "Jun 2026",
-        image: "/projects/in-development.png",
+        date: "August 1st, 2026",
+        image: "/qbit.jpeg",
         excerpt:
-          "This is a placeholder card so you can see the two-column layout. Swap the image, title, and excerpt, then point the read-more link at the real article.",
-        href: "#",
+          "This is my first literature review out of college, my take on the qubit and quantum computing and its applications within finance. from the perspective of a math undergrad.",
+        // TODO: paste the real Medium URL for this post.
+        href: "https://medium.com/@rileyleong24/linear-algebra-in-a-labcoat-a-math-undergrad-thoughts-on-the-qubit-f9bb54754866?postPublishedType=initial",
       },
     ] as {
       category: string;
@@ -283,19 +275,14 @@ export const siteContent = {
         galleryAspect: "4/3",
         gallery: [
           {
-            src: "/logos/headphones.png",
-            title: "Sample — Headphones",
-            note: "This is placeholder text to test the expand. Replace this entry with a real photo and your own thoughts.",
+            src: "/IMG_2893.jpeg",
+            title: "House Party in LA",
+            note: "First House party in LA, centered around pop and hits with some bass house later in the night.",
           },
           {
-            src: "/profile.jpg",
-            title: "Sample — Profile",
-            note: "Second placeholder. Click the arrows to flip between items, click the image to toggle this note.",
-          },
-          {
-            src: "/gx-preview.png",
-            title: "Sample — Preview",
-            note: "Third placeholder — no strong reason for these images, they're just here so you can test the carousel.",
+            src: "/DSC01173_Original.jpg",
+            title: "Venue in LA",
+            note: "First 150+ person event, highlight for me was playing a song I produced myself, it was not a favorite but that's okay.",
           },
         ] as { src: string; title: string; note?: string }[],
         photos: [] as { src: string; alt: string; caption?: string }[],
