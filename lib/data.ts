@@ -418,7 +418,7 @@ export const experiencesData = [
     logo: "/logos/Bloomberg_LP.png",
     role: "Data Management Professional",
     timeline: "Aug 2026 — Present",
-    location: "New York City, NY",
+    location: "New York, NY",
     org: "Alternative Investment Funds Data Automation Team",
     collaborators: [],
     body: [
