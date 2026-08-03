@@ -51,7 +51,7 @@ export default function Intro() {
         className="hidden sm:flex justify-between text-xs uppercase tracking-[0.2em] text-ink-muted"
       >
         <span>(portfolio / 2026)</span>
-        <span>based in new york metropolitan area</span>
+        <span>based in NYC </span>
       </motion.div>
 
       {/* big tagline */}
